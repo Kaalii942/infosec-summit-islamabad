@@ -1,0 +1,73 @@
+/* Text Marquee Divider Styles */
+.text-marquee-divider {
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    padding: 0;
+    /* Removed padding */
+    margin: 0;
+    /* Removed margin */
+    white-space: nowrap;
+    position: relative;
+    z-index: 10;
+}
+
+.marquee-inner {
+    display: inline-block;
+    animation: marquee-text-scroll 25s linear infinite;
+}
+
+.marquee-text {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding: 0 50px;
+}
+
+/* Mixed Styles for Text */
+/* Style 1: Solid Primary */
+.m-style-1 {
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(213, 0, 249, 0.5);
+}
+
+/* Style 2: Outline / Border Style */
+.m-style-2 {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    opacity: 0.5;
+}
+
+/* Style 3: Secondary Glow */
+.m-style-3 {
+    color: var(--secondary);
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+}
+
+/* Style 4: Mixed Gradient */
+.m-style-4 {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes marquee-text-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .marquee-text {
+        font-size: 2.5rem;
+        padding: 0 20px;
+    }
+}

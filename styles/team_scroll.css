@@ -1,0 +1,231 @@
+/* Team Scroll Section - Continuous Marquee */
+.team-scroll-section {
+    padding: 80px 0;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    z-index: 5;
+}
+
+.team-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: team-scroll 30s linear infinite;
+    padding: 20px 0 40px;
+}
+
+
+
+@keyframes team-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 20px));
+    }
+}
+
+/* Card Wrapper (Holds label + Card) */
+.team-card-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.team-card-wrapper:hover {
+    transform: translateY(-10px);
+}
+
+/* Vertical Label */
+.team-label-strip {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    color: var(--primary);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+/* Main Card Body */
+.team-card {
+    width: 260px;
+    height: 380px;
+    position: relative;
+    background: #0a101a;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Neon Glow Spotlights inside the card */
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    filter: blur(40px);
+    opacity: 0.3;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+    transition: var(--transition);
+}
+
+.team-card::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+    filter: blur(35px);
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+    transition: var(--transition);
+}
+
+.team-card-wrapper:hover .team-card::before {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.team-card-wrapper:hover .team-card::after {
+    opacity: 0.4;
+}
+
+.team-card-wrapper:hover .team-card {
+    border-color: var(--primary);
+    box-shadow: 0 0 25px rgba(213, 0, 249, 0.2);
+}
+
+/* Premium Shield Badge */
+.shield-badge {
+    position: absolute;
+    top: -20px;
+    left: -15px;
+    width: 50px;
+    height: 50px;
+    background: var(--bg-dark);
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.5rem;
+    box-shadow: 0 0 15px rgba(213, 0, 249, 0.4);
+    z-index: 20;
+    transform: rotate(-10deg);
+    transition: all 0.3s ease;
+}
+
+.team-card-wrapper:hover .shield-badge {
+    transform: rotate(0deg) scale(1.1);
+    color: var(--secondary);
+    border-color: var(--secondary);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
+/* Image */
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+    filter: brightness(0.9);
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    mask-image: linear-gradient(to bottom, black 85%, transparent 98%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 98%);
+    position: relative;
+    z-index: 2;
+    margin-bottom: -1px;
+    /* Prevent tiny gaps at bottom */
+}
+
+.team-card-wrapper:hover .team-img {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+/* Content Area */
+.team-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(10, 16, 26, 0.95) 20%, transparent 100%);
+    z-index: 10;
+    border-radius: 0 0 12px 12px;
+    /* Matches card corner radius */
+}
+
+.team-name {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: var(--font-heading);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.team-role {
+    color: var(--secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* LinkedIn Icon */
+.team-linkedin {
+    position: absolute;
+    right: 15px;
+    top: -40px;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 119, 181, 0.8);
+    color: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.team-card-wrapper:hover .team-linkedin {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-linkedin:hover {
+    background: #0077b5;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 119, 181, 0.5);
+}
