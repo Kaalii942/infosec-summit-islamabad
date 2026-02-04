@@ -1894,6 +1894,7 @@ ul {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 2px;
     }
 
     /* Stack Socials Vertically */
@@ -2315,4 +2316,5 @@ select option {
     .runner-inner img {
         height: 75px;
     }
+
 }
