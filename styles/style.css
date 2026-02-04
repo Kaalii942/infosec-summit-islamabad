@@ -1894,7 +1894,7 @@ ul {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 2px;
+        gap: 0px;
     }
 
     /* Stack Socials Vertically */
@@ -2318,3 +2318,4 @@ select option {
     }
 
 }
+
