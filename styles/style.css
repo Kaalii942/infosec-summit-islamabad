@@ -1911,13 +1911,13 @@ ul {
 
     /* Adjusted Mobile Logos */
     .logo-brand img {
-        height: 50px;
+        height: 45px;
         /* Synchronized with user preference */
         width: auto;
     }
 
     .logo-main img {
-        height: 40px;
+        height: 35px;
         /* Synchronized with user preference */
         width: auto;
     }
@@ -2318,5 +2318,6 @@ select option {
     }
 
 }
+
 
 
