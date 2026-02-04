@@ -21,7 +21,7 @@
 .agenda-timeline::before {
     content: '';
     position: absolute;
-    left: 50px;
+    left: 165px;
     top: 0;
     width: 2px;
     height: 100%;
@@ -131,4 +131,5 @@
     .agenda-content h3 {
         font-size: 1.1rem;
     }
+
 }
