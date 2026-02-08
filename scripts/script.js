@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Countdown Timer Logic
     const countdownContainer = document.getElementById('countdown');
     if (countdownContainer) {
-        const eventDate = new Date('February 10, 2026 09:00:00').getTime();
+        const eventDate = new Date('February 10, 2026 09:30:00').getTime();
 
         const updateCountdown = () => {
             const now = new Date().getTime();
@@ -265,3 +265,4 @@ if (registrationForm) {
         reader.onerror = error => reject(error);
     });
 }
+
