@@ -1,0 +1,192 @@
+.sponsorship-tiers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.tier-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.tier-card {
+    background: rgba(18, 22, 32, 0.4);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.tier-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--tier-color);
+    box-shadow: 0 0 20px var(--tier-color);
+}
+
+.tier-card.white-hat {
+    --tier-color: #d500f9;
+}
+
+.tier-card.grey-hat {
+    --tier-color: #00e5ff;
+}
+
+.tier-card.black-hat {
+    --tier-color: #d500f9;
+}
+
+.tier-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.tier-title {
+    font-size: 1.6rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    text-shadow: none;
+    position: static;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.benefit-box {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.benefit-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    background: var(--tier-color);
+    color: #000;
+    padding: 6px 2px;
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.benefit-text {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.tier-description {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tier-description em {
+    color: var(--tier-color);
+    font-style: normal;
+    font-weight: 700;
+}
+
+.price-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.progress-bar-custom {
+    display: flex;
+    gap: 3px;
+    height: 25px;
+}
+
+.bar-segment {
+    width: 20px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skewX(-20deg);
+}
+
+.bar-segment.active {
+    background: var(--tier-color);
+    box-shadow: 0 0 10px var(--tier-color);
+}
+
+.price-display {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.price-value {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0 15px var(--tier-color);
+}
+
+.price-curr {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.promo-note {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+@media (max-width: 1100px) {
+    .tier-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tier-title {
+        font-size: 1.4rem;
+    }
+
+    .price-value {
+        font-size: 2.2rem;
+    }
+}

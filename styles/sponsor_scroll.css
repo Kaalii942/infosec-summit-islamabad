@@ -1,0 +1,171 @@
+/* Sponsor Scroll Section */
+.sponsors-scroll-section {
+    padding: 80px 0;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+}
+
+.sponsors-scroll-section::before,
+.sponsors-scroll-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    /* Removed gradients to ensure pure transparency if desired, strictly following 'background must be transparent', 
+       usually implies removing opaque overlays too. */
+    background: transparent;
+}
+
+.sponsors-scroll-section::before {
+    left: 0;
+}
+
+.sponsors-scroll-section::after {
+    right: 0;
+}
+
+.sponsor-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: scroll-left 20s linear infinite;
+    /* Speed up from 40s to 20s */
+    padding: 20px 0;
+}
+
+.sponsor-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 20px));
+    }
+
+    /* Adjust based on duplication */
+}
+
+/* Sponsor Card Styling */
+.sponsor-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 50px 25px 25px;
+    width: 340px;
+    /* Increased from 300px */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Sponsor Type Label (Top Center) */
+.sponsor-type {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--primary);
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(213, 0, 249, 0.4);
+    z-index: 2;
+}
+
+/* Floating Object Icon (Top Left) */
+.sponsor-icon-obj {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 55px;
+    height: 55px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    font-size: 1.6rem;
+    transform: rotate(-10deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    transition: transform 0.3s ease;
+}
+
+.sponsor-card:hover .sponsor-icon-obj {
+    transform: rotate(0deg) scale(1.1);
+    border-color: var(--secondary);
+    color: var(--primary);
+}
+
+/* Logo Area */
+.sponsor-logo {
+    height: 110px;
+    /* Increased from 80px */
+    width: auto;
+    object-fit: contain;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+}
+
+/* Info */
+.sponsor-name {
+    color: #fff;
+    font-size: 1.3rem;
+    /* Increased slightly */
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Socials */
+.sponsor-socials {
+    display: flex;
+    gap: 10px;
+}
+
+.sponsor-socials a {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    /* Circle icons as per standard, or square if preferred */
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.sponsor-socials a:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+}
